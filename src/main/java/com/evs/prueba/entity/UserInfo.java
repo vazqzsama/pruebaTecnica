@@ -14,17 +14,18 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name= "sucursales")
-public class Sucursal implements Serializable {
+@Table(name = "users")
+public class UserInfo implements Serializable {
+
     @Serial
-    private static final long serialVersionUID = 2659637939833928154L;
+    private static final long serialVersionUID = 8686997903624288522L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "sucursal_id",nullable = false, length = 50)
-    private Integer sucursalId;
-
-    @Column(nullable = false,length = 20)
-    private String nombre;
+    private Integer userId;
+    private String name;
+    private String email;
+    private String password;
+    private String roles;
 
 }

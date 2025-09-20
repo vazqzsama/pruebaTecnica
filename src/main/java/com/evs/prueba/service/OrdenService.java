@@ -5,7 +5,7 @@ import com.evs.prueba.dto.OrdenDto;
 
 public interface OrdenService {
 
-    OrdenCreadaDto guardarOrden(OrdenDto request);
+    OrdenCreadaDto guardarOrden(OrdenDto request) throws Exception;
 
-    OrdenDto obtenerOrden(Integer id) throws Exception;
+    OrdenDto obtenerOrden(Integer id);
 }

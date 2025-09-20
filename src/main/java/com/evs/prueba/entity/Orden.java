@@ -2,25 +2,30 @@ package com.evs.prueba.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
-@Table(name="Ordenes")
+@Table(name="ordenes")
 public class Orden implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -2896531207307736057L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "orden_id", nullable = false)
     private Integer ordenId;
 
-    @OneToMany
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "sucursal_id",nullable = false)
     private Sucursal sucursalId;
 
@@ -28,6 +33,7 @@ public class Orden implements Serializable {
     private Date fecha;
 
     @Column(name = "total",nullable = false)
-    private Integer total;
+    private Float total;
+
 
 }

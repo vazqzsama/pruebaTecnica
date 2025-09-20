@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,7 @@ public class ProductoController {
     private ProductoService productoService;
 
     @PutMapping(path = "/actualizarPrecio")
-    public ResponseEntity<Void> actualizarPrecio(ActualizarPrecioDto request) {
+    public ResponseEntity<Void> actualizarPrecio(@RequestBody ActualizarPrecioDto request) {
         try {
             productoService.actualizarPrecio(request);
             return new ResponseEntity<>(HttpStatus.OK);

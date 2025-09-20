@@ -1,5 +1,6 @@
 package com.evs.prueba.controller;
 
+import com.evs.prueba.config.GlobalManagerException;
 import com.evs.prueba.dto.OrdenCreadaDto;
 import com.evs.prueba.dto.OrdenDto;
 import com.evs.prueba.service.OrdenService;
@@ -16,21 +17,17 @@ public class OrdenesController {
     private OrdenService ordenService;
 
     @PostMapping
-    public ResponseEntity<OrdenCreadaDto> guardarOrden(OrdenDto request) {
+    public ResponseEntity<OrdenCreadaDto> guardarOrden(@RequestBody OrdenDto request) {
         try {
             return new ResponseEntity<OrdenCreadaDto>(ordenService.guardarOrden(request), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<OrdenDto> buscarOrden(@RequestParam(name = "id") Integer id) {
-        try {
-            return new ResponseEntity<OrdenDto>(ordenService.obtenerOrden(id), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
+        return new ResponseEntity<OrdenDto>(ordenService.obtenerOrden(id), HttpStatus.OK);
     }
 
 }

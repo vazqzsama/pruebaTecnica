@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "47973eb0-77f4-48a8-b708-17acf2bef8e7",
+		"name": "Prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9713937"
+	},
+	"item": [
+		{
+			"name": "autenticar",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"correo@correo.com\",\r\n    \"password\":\"correoPrueba\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/autenticar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"autenticar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sucursales guardar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb3JyZW9AY29ycmVvLmNvbSIsImlhdCI6MTc1ODMzNDcwNCwiZXhwIjoxNzU4MzQ1NTA0fQ.5HT75HV9ZDD_1ecstauRALXiTcFSFqtctb7wIQl4NaI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\" : \"CDMX\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/sucursales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sucursales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registrarUsuario",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"usuario prueba dos\",\r\n    \"email\":\"correo2@correo.com\",\r\n    \"password\":\"passwordPrueba\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/registrarUsuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"registrarUsuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar sucursal",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb3JyZW9AY29ycmVvLmNvbSIsImlhdCI6MTc1ODMzNjQzNywiZXhwIjoxNzU4MzQ3MjM3fQ.rpYEDqypoTYpd8Rdb-x0iYPNPRJqxk49ECmXbueBm_8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sucursales?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sucursales"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "guardar ordenes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb3JyZW9AY29ycmVvLmNvbSIsImlhdCI6MTc1ODMzNjQzNywiZXhwIjoxNzU4MzQ3MjM3fQ.rpYEDqypoTYpd8Rdb-x0iYPNPRJqxk49ECmXbueBm_8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sucursal\": 1,\r\n    \"total\": 725.5,\r\n    \"productos\": [\r\n        {\r\n            \"codigo\" : \"18156Esmeriladora angularEsmeriladora angularEsmeriladora angularEsmeriladora angular\",\r\n            \"descripcion\" : \"Esmeriladora angularEsmeriladora angularEsmeriladora angularEsmeriladora angularEsmeriladora angular\",\r\n            \"precio\": 625\r\n        },\r\n        {\r\n            \"codigo\" : \"17193\",\r\n            \"descripcion\" : \"Pala redonda\",\r\n            \"precio\": 100.50\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordenes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar ordenes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb3JyZW9AY29ycmVvLmNvbSIsImlhdCI6MTc1ODMzNjQzNywiZXhwIjoxNzU4MzQ3MjM3fQ.rpYEDqypoTYpd8Rdb-x0iYPNPRJqxk49ECmXbueBm_8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordenes?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenes"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
