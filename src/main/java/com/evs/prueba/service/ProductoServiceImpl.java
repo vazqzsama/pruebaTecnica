@@ -7,7 +7,7 @@ import jakarta.persistence.NoResultException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class ProductoServiceImpl implements ProductoService {
@@ -15,12 +15,15 @@ public class ProductoServiceImpl implements ProductoService {
     @Autowired
     private ProductosRepository productosRepository;
 
+
     @Override
     public void actualizarPrecio(ActualizarPrecioDto request) throws Exception {
-        Optional<Producto> producto = productosRepository.findById(request.getProductoId());
-        if (!producto.isPresent()) {
-            throw new NoResultException();
-        }
-
+        /* Fuera de tiempo*/
+        List<Producto> productos = productosRepository.findByOrderIdAndCodigo(request.getOrdenId(), request.getCodigo());
+        productos.forEach( p -> {
+            p.setPrecio(request.getPrecio());
+            productosRepository.save(p);
+        });
+        /* Fuera de tiempo*/
     }
 }

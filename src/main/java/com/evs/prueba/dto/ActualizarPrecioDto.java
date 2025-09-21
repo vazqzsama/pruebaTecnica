@@ -18,8 +18,12 @@ public class ActualizarPrecioDto implements Serializable {
     @Serial
     private static final long serialVersionUID = -7790474928353550644L;
 
+    /* Fuera de tiempo*/
     @NotNull
-    private Integer productoId;
+    private Integer ordenId;
+    @NotNull
+    private String codigo;
+    /* Fuera de tiempo*/
     @NotNull
     private Float precio;
 

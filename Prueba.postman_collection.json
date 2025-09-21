@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\":\"correo@correo.com\",\r\n    \"password\":\"correoPrueba\"\r\n}",
+					"raw": "{\r\n    \"username\":\"correo2@correo.com\",\r\n    \"password\":\"passwordPrueba\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -46,7 +46,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb3JyZW9AY29ycmVvLmNvbSIsImlhdCI6MTc1ODMzNDcwNCwiZXhwIjoxNzU4MzQ1NTA0fQ.5HT75HV9ZDD_1ecstauRALXiTcFSFqtctb7wIQl4NaI",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb3JyZW8yQGNvcnJlby5jb20iLCJpYXQiOjE3NTg0MTEzMjgsImV4cCI6MTc1ODQyMjEyOH0.-7fxBnKD4K-yaE0ZvheVIfjlsDm2Ox48BzrCS-dN_iU",
 							"type": "string"
 						}
 					]
@@ -109,6 +109,38 @@
 			"response": []
 		},
 		{
+			"name": "registrarAdmin",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"usuarioAdmin prueba dos\",\r\n    \"email\":\"correoAdmin@correo.com\",\r\n    \"password\":\"passwordPrueba\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/registrarAdmin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"registrarAdmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "buscar sucursal",
 			"request": {
 				"auth": {
@@ -116,7 +148,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb3JyZW9AY29ycmVvLmNvbSIsImlhdCI6MTc1ODMzNjQzNywiZXhwIjoxNzU4MzQ3MjM3fQ.rpYEDqypoTYpd8Rdb-x0iYPNPRJqxk49ECmXbueBm_8",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb3JyZW8yQGNvcnJlby5jb20iLCJpYXQiOjE3NTgzNDM2MDMsImV4cCI6MTc1ODM1NDQwM30.NMWH2WZTftE0Vd_KiDMFahtturAX4rImxB961D8GbjI",
 							"type": "string"
 						}
 					]
@@ -151,7 +183,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb3JyZW9AY29ycmVvLmNvbSIsImlhdCI6MTc1ODMzNjQzNywiZXhwIjoxNzU4MzQ3MjM3fQ.rpYEDqypoTYpd8Rdb-x0iYPNPRJqxk49ECmXbueBm_8",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb3JyZW8yQGNvcnJlby5jb20iLCJpYXQiOjE3NTgzNDM3MTAsImV4cCI6MTc1ODM1NDUxMH0.4OAI8e4bc69jIORLH8cG5EVkxBReX8sinJhFhR7y5iY",
 							"type": "string"
 						}
 					]
@@ -160,7 +192,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"sucursal\": 1,\r\n    \"total\": 725.5,\r\n    \"productos\": [\r\n        {\r\n            \"codigo\" : \"18156Esmeriladora angularEsmeriladora angularEsmeriladora angularEsmeriladora angular\",\r\n            \"descripcion\" : \"Esmeriladora angularEsmeriladora angularEsmeriladora angularEsmeriladora angularEsmeriladora angular\",\r\n            \"precio\": 625\r\n        },\r\n        {\r\n            \"codigo\" : \"17193\",\r\n            \"descripcion\" : \"Pala redonda\",\r\n            \"precio\": 100.50\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"sucursal\": 1,\r\n    \"total\": 725.5,\r\n    \"productos\": [\r\n        {\r\n            \"codigo\" : \"18156\",\r\n            \"descripcion\" : \"Esmeriladora angular\",\r\n            \"precio\": 625\r\n        },\r\n        {\r\n            \"codigo\" : \"17193\",\r\n            \"descripcion\" : \"Pala redonda\",\r\n            \"precio\": 100.50\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -211,6 +243,45 @@
 							"key": "id",
 							"value": "1"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizarPrecio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb3JyZW8yQGNvcnJlby5jb20iLCJpYXQiOjE3NTg0MTE3MjMsImV4cCI6MTc1ODQyMjUyM30.LgYl4oKSZgadQdrQLZ3tPjjhAaKfLB11mi-6S4EaJZw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ordenId\":1,\r\n    \"codigo\":\"17193\",\r\n    \"precio\":99.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/producto/actualizarPrecio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"producto",
+						"actualizarPrecio"
 					]
 				}
 			},
